@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { useState } from 'react';
+import Navbar from './component/Navbar';
+import Bottom from './component/Bottom'
+import Question from './component/Question'
+import Topbar from './component/Topbar'
+import data from './Data'
+import Pagination from './component/Pagination';
 function App() {
+  const [page,setpage]=useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <div className='container'>
+      <div className='main'>
+       <Topbar index={page}/>
+       <Question index={page}/>
+        <Bottom page={page} setpage={setpage}/>
+        <Pagination page={page} setpage={setpage}/>
+      </div>
+     </div>
+    </>
   );
 }
 
